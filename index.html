@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <style>
+          body{
+               background-color: rgb(20, 169, 52) ;
+               margin: 0;
+               padding: 0;
+          }
+          .container{
+               width:40%;
+               height: 300px;
+               background-color: white;
+               border: 1px solid black;
+               border-radius: 15px ;
+               margin-top: 200px;
+               transform: translateX(370px);
+          }
+          h1{
+               color:rgb(153, 13, 181);
+               font-family: Georgia, 'Times New Roman', Times, serif;
+               text-align: center;
+               cursor: pointer;
+               font-weight: bold;
+            
+          }
+          h1:hover{
+               transform: scale(1.2);
+          }
+          
+          .text1{
+               width: 5%;
+               height: 37px;
+               border-radius: 8px;
+               border: 1px solid black;
+               margin-left: 47px;
+               transform: translateY(20px);
+               cursor: pointer;
+               font-size:2em;
+          }
+        
+         
+          
+         
+          
+          #t3{
+               transform: translateY(70px);
+               font-size: 1.8em;
+               margin-left: 40px;
+               font-family: Georgia, 'Times New Roman', Times, serif;
+               color:rgb(26, 188, 11);
+               font-family: sans-serif;
+              
+          }
+         
+          button{
+               width: 30%;
+               height: 60px;
+               background-color: rgb(6, 103, 97);
+               border: 1px solid black;
+               font-family: Georgia, 'Times New Roman', Times, serif;
+               font-size: 25px;
+               text-align: center;
+               border-radius: 30px;
+              margin-left: 435px;
+               margin-top: 30px;
+               
+          }
+          button:hover{
+               transform: scale(1.4);
+          }
+          .custom-alert {
+               position: fixed;
+               top: 50%;
+               left: 50%;
+               transform: translate(-50%, -50%);
+               background-color: green;
+               color: white;
+               padding: 30px;
+               border-radius: 10px;
+               box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+               display: none;
+          }
+          .custom-alert button {
+               background-color: white;
+               color: rgb(128, 0, 0);
+               border: none;
+               padding: 0 90px;
+               border-radius: 5px;
+               cursor: pointer;
+               font-size: 1em;
+          }
+     </style>
+</head>
+<body>
+     <div class="container">
+          <h1 id="new">Guess the Word</h1>
+          <div id='input'>
+          <input   type="text" class="text1">
+          <input   type="text" class="text1">
+          <input   type="text" class="text1">
+          <input   type="text" class="text1">
+          <input   type="text" class="text1">
+          <input   type="text" class="text1">
+         
+          </div>
+          
+        
+     <div id="t3">Hint:<span style="color: rgb(97, 101, 95);">It is a one type of Scarest animal in forest</span></div>
+     </div>
+     <button id="press">Click me</button>
+     <div id="custom-alert" class="custom-alert">
+          <p id="alert-message"></p>
+          <button onclick="closeAlert()">OK</button>
+     </div>
+
+     <script>
+             document.getElementById('press').addEventListener('click', () => {
+               let inputs = document.querySelectorAll('#input .text1');
+               let word = '';
+               inputs.forEach(input => {
+                    word += input.value;
+               });
+               if (word === "simham") {
+                    showAlert("The word is right!!!!");
+               } else {
+                    showAlert("The word is wrong bro");
+               }
+          });
+
+          function showAlert(message) {
+               document.getElementById('alert-message').innerText = message;
+               document.getElementById('custom-alert').style.display = 'block';
+          }
+
+          function closeAlert() {
+               document.getElementById('custom-alert').style.display = 'none';
+          }
+        
+     </script>
+     
+</body>
+</html>
